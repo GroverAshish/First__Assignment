@@ -66,8 +66,7 @@ function display() {
     }
     else
     {
-        alert("This number is already occupied use different number")
-        console.log(phone);
+        alert("This number is already occupied use different number");
         num.focus();
         return false;
     }
@@ -85,8 +84,7 @@ function display() {
     if(isEditing==true)
     {
         var Editable_Row=document.getElementById(Edit_index);
-    
-        console.log(Editable_Row);
+
         Editable_Row.innerHTML =`   
             <td>${firstname.value}</td>
             <td>${lastname.value}</td>
@@ -101,9 +99,6 @@ function display() {
           localStorage.setItem(Edit_index,JSON.stringify(Storage_details));
 
     
-
-
-          console.log(Editable_Row)
           firstname.value = "";
           lastname.value = "";
           num.value = "";
@@ -137,9 +132,7 @@ function display() {
     i++;
     cell1=row.insertCell(i);
     cell.push(cell1);
-    cell[i].innerHTML=`<button  class="btn btn-primary" onclick="editEntry(${index})">Edit</button>`
-    console.log(tablerows)
-    console.log(typeof(table));
+    cell[i].innerHTML=`<button  class="btn btn-primary" onclick="editEntry(${index})">Edit</button>`;
     tablerows[1].setAttribute("id",index);
     index++;
 
@@ -167,15 +160,10 @@ var div = document.getElementById("showcontent");
   {
     var check=[];
     check=JSON.parse(localStorage.getItem(index1));
-    console.log(check);
     phone[check[2]]=null;
     Email[check[3]]=null;
-    console.log(phone[check[2].value+""]);
-    console.log('Yes im in delete');
     document.getElementById(index1).remove();
     localStorage.removeItem(index1);
-    if(div.innerHTML.indexOf(text1)==-1)
-    console.log("Yes");
 
     if(localStorage.length==0)
     div.style.display="none";
@@ -186,7 +174,6 @@ var div = document.getElementById("showcontent");
 
  function editEntry(index1)
  {
-    console.log("Yes im entered in edit button")
     var formdetails=[];
     formdetails=JSON.parse(localStorage.getItem(index1));
     document.completeform['firstname'].value=formdetails[0];
@@ -197,7 +184,6 @@ var div = document.getElementById("showcontent");
     console.log(formdetails)
     phone[formdetails[2]]=null;
     Email[formdetails[3]]=null;
-    console.log(document.completeform['firstname'].value)
     isEditing=true;
     Edit_index=index1;
  }
